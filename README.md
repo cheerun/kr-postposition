@@ -25,9 +25,13 @@ Below one of postposition strings for reference
 ```
 
 ## example
-###CommonJS
+###CommonJS (node.js)
+```javascript
 require('kr-postposition').attach('고래', '이랑') // '고래랑'
+```
 
 ###Browser
+```javascript
 // use kr-postposition.js or kr-postposition.min.js in the library directory and 'script' tag
 krPostposition.attach('예약', '와') // '예약과'
+```
