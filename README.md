@@ -10,7 +10,8 @@ Word that want to attach postposition
 `type`
 Below one of postposition strings for reference
 
->'을' || '를'
+```javascript
+'을' || '를'
 '이' || '가'
 '은' || '는'
 '과' || '와'
@@ -21,7 +22,7 @@ Below one of postposition strings for reference
 '이라도' || '라도'
 '이나마' || '나마'
 '은커녕' || '는커녕'
-
+```
 
 ## example
 ###CommonJS
