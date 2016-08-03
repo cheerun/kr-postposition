@@ -1,7 +1,23 @@
 'use strict';
 
 (function (exports) {
-  exports.attach = function () {
+  var DEFAULT_SYMBOL = {
+    open: '{',
+    close: '}'
+  };
+
+  var symbol = {
+    open: DEFAULT_SYMBOL.open,
+    close: DEFAULT_SYMBOL.close
+  };
+
+  /**
+   * merge(word: any, type: string): string
+   * @param word: 
+   * @param type:
+   * @returns string
+   */
+  exports.merge = function () {
     var word = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
     var type = arguments[1];
 
@@ -23,6 +39,45 @@
       return word + getPostposition(type, true);
     }
   };
+
+  exports.parse = function (sentence) {
+    var parseRegExp = new RegExp('(.)' + symbol.open + '([^' + symbol.close + '.]*)' + symbol.close, 'gm');
+
+    var result = sentence;
+    var matches = void 0;
+    while (matches = parseRegExp.exec(result)) {
+      var target = matches[0];
+      var word = matches[1];
+      var type = matches[2];
+      var mergedWord = exports.merge(word, type);
+      result = result.replace(target, mergedWord);
+    }
+    return result;
+  };
+
+  exports.getSymbol = function () {
+    return symbol;
+  };
+  exports.setSymbol = function (openSymbol, closeSymbol) {
+    exports.setOpenSymbol(openSymbol);
+    exports.setCloseSymbol(closeSymbol);
+  };
+  exports.setOpenSymbol = function () {
+    var openSymbol = arguments.length <= 0 || arguments[0] === undefined ? DEFAULT_SYMBOL.open : arguments[0];
+
+    symbol.open = '\\' + openSymbol;
+  };
+  exports.setCloseSymbol = function () {
+    var closeSymbol = arguments.length <= 0 || arguments[0] === undefined ? DEFAULT_SYMBOL.close : arguments[0];
+
+    symbol.close = '\\' + closeSymbol;
+  };
+
+  /**
+   * attach(word: any, type: string): string
+   * @deprecated - changed to merge()
+   */
+  exports.attach = exports.merge;
 
   var getPostposition = function getPostposition(type, hasJongjang) {
     var koreanYiCode = 0xC774;
