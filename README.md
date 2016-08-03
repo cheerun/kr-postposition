@@ -2,7 +2,7 @@
 For suitable postposition on korean word
 
 ## merge(word, type)
-Merge and return word with proper postposition according to type.
+Merge and return word with proper postposition according to type.  
 (attach() was deprecated. It will be removed on next major update) 
 
 `word`:
@@ -50,7 +50,7 @@ krPostposition.attach('고양이', '이었다') // '고양이였다'
 
 
 ## parse(sentence)
-Parse postposition with open-closed symbols to merged words in the whole sentence.
+Parse postposition with open-closed symbols to merged words in the whole sentence.  
 (Default open symbol is '{', and close symbol is '}')
 
 `sentence`:
@@ -72,5 +72,5 @@ Get open and close symbol
 ## setSymbol(openSymbol, closeSymbol)
 ## setOpenSymbol(openSymbol)
 ## setCloseSymbol(closeSymbol)
-Set new open, or closed, or open and closed symbol.
+Set new open, or closed, or open and closed symbol.  
 If parameter is empty, Symbol is set to default symbols '{' and '}'
