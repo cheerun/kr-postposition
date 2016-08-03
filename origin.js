@@ -1,5 +1,21 @@
 ((exports) => {
-  exports.attach = (word = '', type) => {
+  const DEFAULT_SYMBOL = {
+    open: '{',
+    close: '}'
+  }
+
+  let symbol = {
+    open: DEFAULT_SYMBOL.open,
+    close: DEFAULT_SYMBOL.close
+  }
+
+  /**
+   * merge(word: any, type: string): string
+   * @param word: 
+   * @param type:
+   * @returns string
+   */
+  exports.merge = (word = '', type) => {
     if (isUndefined(type)) {
       return word
     }
@@ -18,6 +34,40 @@
       return word + getPostposition(type, true)
     }
   }
+  
+  exports.parse = (sentence) => {
+    const parseRegExp = new RegExp(`(.)${symbol.open}([^${symbol.close}.]*)${symbol.close}`, 'gm')
+
+    let result = sentence
+    let matches
+    while (matches = parseRegExp.exec(result)) {
+      let target = matches[0]
+      let word = matches[1]
+      let type = matches[2]
+      let mergedWord = exports.merge(word, type)
+      result = result.replace(target, mergedWord)
+    }
+    return result
+  }
+
+  exports.getSymbol = () => symbol
+  exports.setSymbol = (openSymbol, closeSymbol) => {
+    exports.setOpenSymbol(openSymbol)
+    exports.setCloseSymbol(closeSymbol)
+  }
+  exports.setOpenSymbol = (openSymbol = DEFAULT_SYMBOL.open) => {
+    symbol.open = '\\' + openSymbol
+  }
+  exports.setCloseSymbol = (closeSymbol = DEFAULT_SYMBOL.close) => {
+    symbol.close = '\\' + closeSymbol
+  }
+
+
+  /**
+   * attach(word: any, type: string): string
+   * @deprecated - changed to merge()
+   */
+  exports.attach = exports.merge
 
   const getPostposition = (type, hasJongjang) => {
     let koreanYiCode = 0xC774
