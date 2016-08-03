@@ -2,7 +2,7 @@
 For suitable postposition on korean word
 
 ## merge(word, type)
-Merge and return word with proper postposition according to type
+Merge and return word with proper postposition according to type.
 (attach() was deprecated. It will be removed on next major update) 
 
 `word`:
