@@ -20,6 +20,7 @@
   }
 
   const getPostposition = (type, hasJongjang) => {
+    let koreanYiCode = 0xC774
     switch (type) {
       case '을':
       case '를':
@@ -36,25 +37,24 @@
       case '아':
       case '야':
         return hasJongjang ? '아' : '야'
-      case '이야':
-        return hasJongjang ? '이야' : '야'
-      case '이랑':
-      case '랑':
-        return hasJongjang ? '이랑' : '랑'
-      case '이나':
-      case '나':
-        return hasJongjang ? '이나' : '나'
-      case '이라도':
-      case '라도':
-        return hasJongjang ? '이라도' : '라도'
-      case '이나마':
-      case '나마':
-        return hasJongjang ? '이나마' : '나마'
+      case '이어':
+      case '여':
+        return hasJongjang ? '이어' : '여'
+      case '이었':
+      case '였':
+        return hasJongjang ? '이었' : '였'
+      case '으로':
+      case '로':
+        return hasJongjang ? '으로' : '로'
       case '은커녕':
       case '는커녕':
         return hasJongjang ? '은커녕' : '는커녕'
       default:
-        return ''
+        if(type.charCodeAt(0) === koreanYiCode) {
+          return hasJongjang ? type : type.substring(1)
+        } else {
+          return hasJongjang ? '이' + type : type
+        }
     }
   }
 

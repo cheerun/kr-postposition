@@ -1,11 +1,15 @@
 module.exports = function (config) {
   config.set({
+    preprocessors: {
+      'origin.js': ['babel'],
+      'origin.spec.js': ['babel']
+    },
     frameworks: ['jasmine'],
     reporters: ['spec'],
     browsers: ['PhantomJS'],
     files: [
-      'kr-postposition.js',
-      'kr-postposition.spec.js'
+      'origin.js',
+      'origin.spec.js'
     ]
   })
 }
