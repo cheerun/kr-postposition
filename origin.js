@@ -70,7 +70,7 @@
   exports.attach = exports.merge
 
   const getPostposition = (type, hasJongjang) => {
-    let koreanYiCode = 0xC774
+    let koreanYiCode = 0xC774 // 이
     switch (type) {
       case '을':
       case '를':

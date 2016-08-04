@@ -1,9 +1,9 @@
 # kr-postposition
-For suitable postposition on korean word
+Combine suitable postposition on korean word
 
 ## merge(word, type)
 Merge and return word with proper postposition according to type.  
-(attach() was deprecated. It will be removed on next major update) 
+(attach() was deprecated. It will be removed on next major update, v3.0.0) 
 
 `word`:
 The word you want to attach postposition
@@ -37,15 +37,15 @@ or Custom string for example '(이) + *'
 
 ### example:CommonJS (node.js)
 ```javascript
-require('kr-postposition').attach('고래', '이랑') // '고래랑'
-require('kr-postposition').attach('사랑', '나') // '사랑이나'
+require('kr-postposition').merge('고래', '이랑') // '고래랑'
+require('kr-postposition').merge('사랑', '나') // '사랑이나'
 ```
 
 ### example:Browser
 ```javascript
 // use kr-postposition.js or kr-postposition.min.js in the library directory and 'script' tag
-krPostposition.attach('예약', '와') // '예약과'
-krPostposition.attach('고양이', '이었다') // '고양이였다'
+krPostposition.merge('예약', '와') // '예약과'
+krPostposition.merge('고양이', '이었다') // '고양이였다'
 ```
 
 
