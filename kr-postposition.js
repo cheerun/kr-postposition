@@ -13,8 +13,8 @@
 
   /**
    * merge(word: any, type: string): string
-   * @param word: 
-   * @param type:
+   * @param word
+   * @param type
    * @returns string
    */
   exports.merge = function () {
@@ -40,6 +40,11 @@
     }
   };
 
+  /**
+   * parse(sentence: any): string
+   * @param sentence
+   * @returns string
+   */
   exports.parse = function (sentence) {
     var parseRegExp = new RegExp('(.)' + symbol.open + '([^' + symbol.close + '.]*)' + symbol.close, 'gm');
 
@@ -75,12 +80,12 @@
 
   /**
    * attach(word: any, type: string): string
-   * @deprecated - changed to merge()
+   * @deprecated - changed to merge(). Use merge() because it will be removed on v3.0.0
    */
   exports.attach = exports.merge;
 
   var getPostposition = function getPostposition(type, hasJongjang) {
-    var koreanYiCode = 0xC774;
+    var koreanYiCode = 0xC774; // 이
     switch (type) {
       case '을':
       case '를':

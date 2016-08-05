@@ -11,8 +11,8 @@
 
   /**
    * merge(word: any, type: string): string
-   * @param word: 
-   * @param type:
+   * @param word
+   * @param type
    * @returns string
    */
   exports.merge = (word = '', type) => {
@@ -34,7 +34,12 @@
       return word + getPostposition(type, true)
     }
   }
-  
+
+  /**
+   * parse(sentence: any): string
+   * @param sentence
+   * @returns string
+   */
   exports.parse = (sentence) => {
     const parseRegExp = new RegExp(`(.)${symbol.open}([^${symbol.close}.]*)${symbol.close}`, 'gm')
 
@@ -56,16 +61,16 @@
     exports.setCloseSymbol(closeSymbol)
   }
   exports.setOpenSymbol = (openSymbol = DEFAULT_SYMBOL.open) => {
-    symbol.open = '\\' + openSymbol
+    symbol.open = `\\${openSymbol}`
   }
   exports.setCloseSymbol = (closeSymbol = DEFAULT_SYMBOL.close) => {
-    symbol.close = '\\' + closeSymbol
+    symbol.close = `\\${closeSymbol}`
   }
 
 
   /**
    * attach(word: any, type: string): string
-   * @deprecated - changed to merge()
+   * @deprecated - changed to merge(). Use merge() because it will be removed on v3.0.0
    */
   exports.attach = exports.merge
 
