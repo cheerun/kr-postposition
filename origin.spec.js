@@ -1,12 +1,12 @@
 describe('test krPostposition library', () => {
-  it('merge() function\'s original type', () => {
+  it('merge() function\'s original type test', () => {
     expect(krPostposition.merge('돌고래', '과')).toBe('돌고래와')
     expect(krPostposition.merge('사슴', '는')).toBe('사슴은')
     expect(krPostposition.merge('고양이', '이')).toBe('고양이가')
     expect(krPostposition.merge('모니터', '이었')).toBe('모니터였')
   })
 
-  it('merge() function\'s custom type', () => {
+  it('merge() function\'s custom type test', () => {
     expect(krPostposition.merge('사랑', '이야말로')).toBe('사랑이야말로')
     expect(krPostposition.merge('마음', '라도')).toBe('마음이라도')
     expect(krPostposition.merge('고기', '이나마')).toBe('고기나마')
